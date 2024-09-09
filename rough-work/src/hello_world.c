@@ -1,15 +1,15 @@
-#include <stdio.h>
+// #include <stdio.h>
 
-int main(void) {
+// int main(void) {
     
-    int num1, num2, sum;
+//     int num1, num2, sum;
 
-    scanf("%d", &num1);
-    scanf("%d", &num2);
+//     scanf("%d", &num1);
+//     scanf("%d", &num2);
 
-    sum = num1 + num2;
+//     sum = num1 + num2;
 
-    printf("%d", sum);
+//     printf("%d", sum);
     
-    return 0;
-}
+//     return 0;
+// }

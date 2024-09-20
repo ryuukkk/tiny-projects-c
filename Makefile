@@ -1,6 +1,6 @@
 # Variables
-CC = gcc
-CFLAGS = -std=c17 -Wall -Wextra
+CC = g++                         # Change compiler to g++ for C++
+CXXFLAGS = -std=c++20 -Wall -Wextra   # Change to CXXFLAGS and update standard to C++17
 
 # Directories
 SRC_DIR = rough-work/src
@@ -15,14 +15,14 @@ PROJECTS = $(shell find . -maxdepth 1 -type d -name 'project*')
 all: $(PROJECTS)
 
 $(PROJECTS):
-	$(MAKE) -C $@ CC=$(CC) CFLAGS="$(CFLAGS) -I$@/$(INCLUDE_DIR)" SRC_DIR=$(SRC_DIR) BIN_DIR=$(BIN_DIR) BUILD_DIR=$(BUILD_DIR)
+	$(MAKE) -C $@ CC=$(CC) CXXFLAGS="$(CXXFLAGS) -I$@/$(INCLUDE_DIR)" SRC_DIR=$(SRC_DIR) BIN_DIR=$(BIN_DIR) BUILD_DIR=$(BUILD_DIR)
 
 # Build specific project in rough-work/src/
 rough-work: $(BIN_DIR)/rough_work
 
 # Specify the target and the dependencies
-$(BIN_DIR)/rough_work: $(wildcard $(SRC_DIR)/*.c) | $(BIN_DIR)
-	$(CC) $(CFLAGS) -I$(INCLUDE_DIR) $(wildcard $(SRC_DIR)/*.c) -o $(BIN_DIR)/rough_work
+$(BIN_DIR)/rough_work: $(wildcard $(SRC_DIR)/*.cpp) | $(BIN_DIR)   # Change *.c to *.cpp for C++
+	$(CC) $(CXXFLAGS) -I$(INCLUDE_DIR) $(wildcard $(SRC_DIR)/*.cpp) -o $(BIN_DIR)/rough_work   # Change *.c to *.cpp for C++
 
 # Create the bin directory if it doesn't exist
 $(BIN_DIR):
